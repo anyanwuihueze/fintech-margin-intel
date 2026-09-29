@@ -1,0 +1,95 @@
+{
+  "_comment": "Rate cards grounded in publicly documented 2026 pricing. Sources noted per provider. VAT is applied on the fee amount, not the transaction principal, per Nigerian tax rules.",
+  "providers": [
+    {
+      "provider_id": "paystack",
+      "display_name": "Paystack",
+      "version": "2026.1",
+      "effective_date": "2026-01-01",
+      "source": "https://support.paystack.com/en/articles/2130306 (accessed 2026-09-29)",
+      "channels": {
+        "local_card": {
+          "percentage_fee": 0.015,
+          "flat_fee_ngn": 100,
+          "flat_fee_waived_under_ngn": 2500,
+          "fee_cap_ngn": 2000
+        },
+        "international_card": {
+          "percentage_fee": 0.039,
+          "flat_fee_ngn": 100,
+          "flat_fee_waived_under_ngn": null,
+          "fee_cap_ngn": null
+        },
+        "bank_transfer": {
+          "percentage_fee": 0.015,
+          "flat_fee_ngn": 100,
+          "flat_fee_waived_under_ngn": 2500,
+          "fee_cap_ngn": 2000
+        },
+        "ussd": {
+          "percentage_fee": 0.015,
+          "flat_fee_ngn": 100,
+          "flat_fee_waived_under_ngn": 2500,
+          "fee_cap_ngn": 2000
+        }
+      },
+      "vat_rate": 0.075,
+      "vat_applies_to": "fee_amount_only",
+      "chargeback_fee_ngn": 2500
+    },
+    {
+      "provider_id": "flutterwave",
+      "display_name": "Flutterwave",
+      "version": "2026.1",
+      "effective_date": "2024-11-11",
+      "source": "https://dodopayments.com/blogs/flutterwave-alternatives, https://us.fitgap.com/products/006679/flutterwave (accessed 2026-09-29)",
+      "channels": {
+        "local_card": {
+          "processing_fee_pct": 0.014,
+          "platform_fee_pct": 0.006,
+          "blended_pct": 0.02,
+          "flat_fee_ngn": 0,
+          "fee_cap_ngn": null
+        },
+        "international_card": {
+          "blended_pct": 0.048,
+          "flat_fee_ngn": 0,
+          "fee_cap_ngn": null
+        },
+        "mobile_money": {
+          "blended_pct": 0.02,
+          "flat_fee_ngn": 0,
+          "fee_cap_ngn": null
+        }
+      },
+      "vat_rate": 0.075,
+      "vat_applies_to": "fee_amount_only",
+      "chargeback_fee_ngn": null
+    },
+    {
+      "provider_id": "nip",
+      "display_name": "NIP (NIBSS Instant Payment / bank transfer, CBN 2026 Guide to Charges)",
+      "version": "2026.1",
+      "effective_date": "2026-01-01",
+      "source": "https://techcabal.com/2026/04/27/why-transfers-above-\u20a610000-will-cost-\u20a660/, https://afriex.com/post/nigeria-bank-transfer-fees-2026 (accessed 2026-09-29)",
+      "channels": {
+        "bank_transfer": {
+          "tiers": [
+            { "min_ngn": 0, "max_ngn": 4999.99, "flat_fee_ngn": 0 },
+            { "min_ngn": 5000, "max_ngn": 50000, "flat_fee_ngn": 10 },
+            { "min_ngn": 50000.01, "max_ngn": null, "flat_fee_ngn": 50 }
+          ]
+        }
+      },
+      "stamp_duty": {
+        "applies_from_ngn": 10000,
+        "flat_fee_ngn": 50,
+        "paid_by": "sender",
+        "effective_date": "2026-01-01",
+        "note": "Replaces the old EMTL (previously receiver-paid, 2020-2025)"
+      },
+      "vat_rate": 0.0,
+      "vat_applies_to": "not_applicable"
+    }
+  ]
+}
