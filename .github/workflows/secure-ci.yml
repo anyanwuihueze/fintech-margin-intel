@@ -34,12 +34,14 @@ jobs:
   sast:
     runs-on: ubuntu-latest
     needs: test
+    permissions:
+      contents: read
+    container:
+      image: semgrep/semgrep
     steps:
       - uses: actions/checkout@v4
       - name: Semgrep
-        uses: semgrep/semgrep-action@v1
-        with:
-          config: p/ci
+        run: semgrep scan --config p/ci --error .
 
   dependency-scan:
     runs-on: ubuntu-latest
